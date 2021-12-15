@@ -67,5 +67,24 @@ namespace SimpleMVVMDemo.ViewModel
         {
             StopClock();
         }
+
+        private string nowTime = DateTime.Now.ToLongTimeString();
+
+        public string NowTime
+        {
+            get
+            {
+                Task.Run(async () =>
+                {
+                    while (true)
+                    {
+                        NowTime ="当前时间是："+ DateTime.Now.ToLongTimeString();
+                        await Task.Delay(1000);
+                    }
+                });
+                return nowTime;
+            }
+            set => SetProperty(ref nowTime, value);
+        }
     }
 }
