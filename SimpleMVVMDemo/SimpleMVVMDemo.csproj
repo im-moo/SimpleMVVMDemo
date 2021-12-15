@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\im-moo\MvvmLightCore\SimpleMVVM\SimpleMVVM.csproj" />
+    <ProjectReference Include="..\SimpleMVVM\SimpleMVVM.csproj" />
   </ItemGroup>
 
 </Project>
