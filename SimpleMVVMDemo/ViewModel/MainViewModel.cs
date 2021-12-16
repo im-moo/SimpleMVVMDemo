@@ -9,7 +9,7 @@ namespace SimpleMVVMDemo.ViewModel
     {
         private string _time = "00:00:00.0000000";
         private bool _clockIsRunning;
-
+        private bool _controlsEnabled = true;
         public string Time
         {
             get
@@ -78,13 +78,22 @@ namespace SimpleMVVMDemo.ViewModel
                 {
                     while (true)
                     {
-                        NowTime ="当前时间是："+ DateTime.Now.ToLongTimeString();
+                        NowTime = "当前时间是：" + DateTime.Now.ToLongTimeString();
                         await Task.Delay(1000);
                     }
                 });
                 return nowTime;
             }
             set => SetProperty(ref nowTime, value);
+        }
+
+        public bool ControlsEnabled { get => _controlsEnabled; set => SetProperty(ref _controlsEnabled, value); }
+
+        public ICommand ClosIt = new SimpleCommand<Action<object>>(async x => { await CloseIt(x); });
+
+        private static async Task CloseIt(object sender)
+        {
+            await Task.Delay(100);
         }
     }
 }
