@@ -9,18 +9,19 @@ namespace SimpleMVVM
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+           => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
 
-        protected void SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        protected virtual bool SetProperty<T>(ref T member, T value, [CallerMemberName] string? propertyName = null)
         {
-            if (!EqualityComparer<T>.Default.Equals(storage, value))
+            if (EqualityComparer<T>.Default.Equals(member, value))
             {
-                storage = value;
-                OnPropertyChanged(propertyName);
+                return false;
             }
+
+            member = value;
+            OnPropertyChanged(propertyName);
+            return true;
         }
 
         protected virtual void Dispose(bool disposing)

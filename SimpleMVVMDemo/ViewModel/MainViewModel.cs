@@ -42,7 +42,7 @@ namespace SimpleMVVMDemo.ViewModel
             ClockIsRunning = false;
         }
 
-        private SimpleCommand start;
+        private SimpleCommand? start;
         public ICommand Start => start ??= new SimpleCommand(async () => { await PerformStart(); });
 
         private async Task PerformStart()
@@ -50,7 +50,7 @@ namespace SimpleMVVMDemo.ViewModel
             await StartClock();
         }
 
-        private SimpleCommand stop;
+        private SimpleCommand? stop;
         public ICommand Stop => stop ??= new SimpleCommand(() => PerformStop(new object()));
 
         public bool ClockIsRunning

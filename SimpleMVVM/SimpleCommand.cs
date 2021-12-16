@@ -16,13 +16,13 @@ namespace SimpleMVVM
         {
         }
 
-        public SimpleCommand(Action execute, Func<bool> canExecute)
+        public SimpleCommand(Action execute, Func<bool>? canExecute)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
+            _canExecute = canExecute ?? (() => true);
         }
 
-        public event EventHandler CanExecuteChanged
+        public event EventHandler? CanExecuteChanged
         {
             add
             {
@@ -85,7 +85,7 @@ namespace SimpleMVVM
             }
         }
 
-        public void RaiseCanExecuteChanged(object sender)
+        private void RaiseCanExecuteChanged(object sender)
         {
             var list = SafeCopyEventHandlerList();
             foreach (var eventHandler in list)
@@ -93,6 +93,8 @@ namespace SimpleMVVM
                 eventHandler(sender, EventArgs.Empty);
             }
         }
+
+        public void Refresh(object sender) => RaiseCanExecuteChanged(sender);
 
         public bool CanExecute(object parameter) => _canExecute == null || _canExecute();
 
