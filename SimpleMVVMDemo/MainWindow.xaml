@@ -25,6 +25,14 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.TextBlock.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.ToggleButton.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="TextBlock">
+                <Setter Property="Foreground"
+                        Value="White"></Setter>
+            </Style>
+            <Style TargetType="Grid">
+                <Setter Property="Background"
+                        Value="BlueViolet"></Setter>
+            </Style>
         </ResourceDictionary>
     </Window.Resources>
     <Grid>
@@ -52,14 +60,18 @@
                     ToolTip="MaterialDesignIconForegroundButton"
                     Command="{Binding Start}"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
-                <materialDesign:PackIcon Kind="Play" />
+                <materialDesign:PackIcon Kind="Play"
+                                         Width="48"
+                                         Height="48" />
             </Button>
             <Button Grid.Column="1"
                     Style="{StaticResource MaterialDesignIconForegroundButton}"
                     ToolTip="MaterialDesignIconForegroundButton"
                     Command="{Binding Stop}"
                     IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}">
-                <materialDesign:PackIcon Kind="Stop" />
+                <materialDesign:PackIcon Kind="Stop"
+                                         Width="48"
+                                         Height="48" />
             </Button>
             <TextBlock Grid.Row="1"
                        FontSize="50"
