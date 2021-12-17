@@ -7,7 +7,7 @@ namespace SimpleMVVMDemo.ViewModel
 {
     public class MainViewModel : ViewModelBase
     {
-        private string _time = "00:00:00.0000000";
+        private string _time = "0000000";
         private bool _clockIsRunning;
         private bool _controlsEnabled = true;
         public string Time
@@ -31,7 +31,7 @@ namespace SimpleMVVMDemo.ViewModel
 
                      if (ClockIsRunning)
                      {
-                         Time = DateTime.Now.ToString("HH:mm:ss.fffffff");
+                         Time = DateTime.Now.ToString("FFFFFFF");
                      }
                  }
              });

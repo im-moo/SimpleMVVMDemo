@@ -36,7 +36,7 @@
             </Style>
         </ResourceDictionary>
     </Window.Resources>
-    <Border CornerRadius="10,10,10,10"
+    <Border CornerRadius="20"
             Background="#303030"
             BorderThickness="2">
         <Grid>
@@ -46,9 +46,10 @@
             </Grid.RowDefinitions>
             <TextBlock Grid.Row="0"
                        Text="{Binding Time}"
-                       FontSize="50"
+                       FontSize="200"
                        VerticalAlignment="Center"
-                       HorizontalAlignment="Center" />
+                       HorizontalAlignment="Center"
+                       FontFamily="Curlz MT" />
             <CheckBox HorizontalAlignment="Right"
                       VerticalContentAlignment="Center"
                       BorderBrush="Wheat"
