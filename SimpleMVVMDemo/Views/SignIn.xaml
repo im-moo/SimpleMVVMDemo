@@ -12,7 +12,9 @@
         AllowsTransparency="True"
         Title="SignIn"
         Height="450"
-        Width="300">
+        Width="300"
+        Icon="../Image/head.jpg"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
     <Border CornerRadius="10"
             Background="WhiteSmoke">
         <Grid>
@@ -61,18 +63,18 @@
                            FontSize="32"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           TextAlignment="Center">×</TextBlock>
+                           TextAlignment="Center"
+                           MouseDown="TextBlock_MouseDown">×</TextBlock>
             </DockPanel>
             <Grid Grid.Row="1">
-                <Button Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                <Border Height="100"
                         Width="100"
-                        Height="100"
-                        Cursor="Hand"
-                        Margin="100,50,100,270">
-                    <Button.Background>
+                        Margin="100,50,100,270"
+                        CornerRadius="100,100,100,100">
+                    <Border.Background>
                         <ImageBrush ImageSource="/Image/head.jpg" />
-                    </Button.Background>
-                </Button>
+                    </Border.Background>
+                </Border>
                 <StackPanel HorizontalAlignment="Center"
                             VerticalAlignment="Top"
                             Width="200"
