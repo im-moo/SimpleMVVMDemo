@@ -61,9 +61,14 @@
                 <TextBlock Width="32"
                            Style="{DynamicResource color1}"
                            FontSize="32"
+                           Text="≡"
                            HorizontalAlignment="Center"
                            VerticalAlignment="Center"
-                           TextAlignment="Center">≡</TextBlock>
+                           TextAlignment="Center">
+                    <TextBlock.InputBindings>
+                        <MouseBinding Command="{Binding ClickSetting}"
+                                      MouseAction="LeftClick" />
+                    </TextBlock.InputBindings></TextBlock>
                 <TextBlock Width="32"
                            Style="{DynamicResource color2}"
                            FontSize="32"
