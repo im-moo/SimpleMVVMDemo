@@ -39,5 +39,15 @@ namespace SimpleMVVMDemo.ViewModel
         private System.Windows.WindowState winSta;
 
         public System.Windows.WindowState WinSta { get => winSta; set => SetProperty(ref winSta, value); }
+
+        private SimpleCommand clickSetting;
+        public ICommand ClickSetting => clickSetting ??= new SimpleCommand(PerformClickSetting);
+
+        private void PerformClickSetting()
+        {
+            SettingWindow setting = new();
+            setting.ShowDialog();
+            WinSta = System.Windows.WindowState.Minimized;
+        }
     }
 }
