@@ -3,8 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:SimpleMVVMDemo.Views"
+        xmlns:local="clr-namespace:SimpleMVVMDemo.Helper"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:viewmodel="clr-namespace:SimpleMVVMDemo.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodel:SignInViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -15,6 +17,9 @@
         Width="300"
         Icon="../Image/head.jpg"
         MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.DataContext>
+        <viewmodel:SignInViewModel />
+    </Window.DataContext>
     <Border CornerRadius="10"
             Background="WhiteSmoke">
         <Grid>
@@ -93,7 +98,7 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Resources>
-                    <CheckBox x:Name="MaterialDesignFilledTextBoxEnabledComboBox"
+                    <CheckBox x:Name="SaveAccount"
                               Content="记住账号"
                               Style="{DynamicResource psw}" />
                     <TextBox Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -102,7 +107,9 @@
                              TextWrapping="Wrap"
                              FontSize="15"
                              MaxWidth="400"
-                             materialDesign:HintAssist.Hint="Account" />
+                             Text="{Binding Account}"
+                             materialDesign:HintAssist.Hint="Account"
+                             Cursor="IBeam" />
                 </StackPanel>
                 <StackPanel Width="200"
                             VerticalAlignment="Top"
@@ -122,14 +129,16 @@
                             </Style.Triggers>
                         </Style>
                     </StackPanel.Resources>
-                    <CheckBox x:Name="MaterialDesignFilledPasswordFieldPasswordBoxEnabledComboBox"
+                    <CheckBox x:Name="SavePassword"
                               Content="记住密码"
-                              IsEnabled="{Binding Path=IsChecked, ElementName=MaterialDesignFilledTextBoxEnabledComboBox}"
+                              IsEnabled="{Binding Path=IsChecked, ElementName=SaveAccount}"
                               Style="{DynamicResource psw}" />
                     <PasswordBox Style="{StaticResource MaterialDesignFilledPasswordBox}"
                                  VerticalAlignment="Top"
                                  FontSize="15"
-                                 materialDesign:HintAssist.Hint="Password" />
+                                 local:PasswordBoxBindingHelper.PasswordContent="{Binding Password,Mode=TwoWay}"
+                                 materialDesign:HintAssist.Hint="Password"
+                                 Cursor="IBeam" />
                 </StackPanel>
                 <Button Width="200"
                         Height="32"
