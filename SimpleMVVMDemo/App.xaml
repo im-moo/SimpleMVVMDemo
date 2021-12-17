@@ -6,7 +6,7 @@
              xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:simpleMVVMDemo="clr-namespace:SimpleMVVMDemo"
-             StartupUri="../Views/Home.xaml">
+             StartupUri="../Views/SignIn.xaml">
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
