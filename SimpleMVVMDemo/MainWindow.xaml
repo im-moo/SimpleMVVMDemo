@@ -99,7 +99,8 @@
                                              Width="48" />
                 </Button>
                 <TextBlock Grid.Row="1"
-                           FontSize="50"
+                           FontSize="72"
+                           FontFamily="Curlz MT"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
                            Text="{Binding NowTime}"
