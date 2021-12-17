@@ -1,6 +1,6 @@
 ﻿using SimpleMVVM;
-using System.Security;
-using System.Windows;
+using SimpleMVVMDemo.Views;
+using System.Windows.Input;
 
 namespace SimpleMVVMDemo.ViewModel
 {
@@ -23,18 +23,21 @@ namespace SimpleMVVMDemo.ViewModel
             }
         }
 
-        public static SecureString GetEncryptedPassword(DependencyObject obj)
+        private SimpleCommand signIn;
+        public ICommand SignIn => signIn ??= new SimpleCommand(PerformSignIn);
+
+        private void PerformSignIn()
         {
-            return (SecureString)obj.GetValue(EncryptedPasswordProperty);
+            if (Account == "admin" && Password == "admin")
+            {
+                Home home = new();
+                home.ShowDialog();
+                WinSta = System.Windows.WindowState.Minimized;
+            }
         }
 
-        public static void SetEncryptedPassword(DependencyObject obj, SecureString value)
-        {
-            obj.SetValue(EncryptedPasswordProperty, value);
-        }
+        private System.Windows.WindowState winSta;
 
-        // Using a DependencyProperty as the backing store for EncryptedPassword.  This enables animation, styling, binding, etc...
-        public static DependencyProperty EncryptedPasswordProperty =
-            DependencyProperty.RegisterAttached("EncryptedPassword", typeof(SecureString), typeof(SignInViewModel));
+        public System.Windows.WindowState WinSta { get => winSta; set => SetProperty(ref winSta, value); }
     }
 }

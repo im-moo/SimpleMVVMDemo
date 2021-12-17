@@ -10,6 +10,7 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
+        WindowState="{Binding WinSta}"
         Background="Transparent"
         AllowsTransparency="True"
         Title="SignIn"
@@ -143,6 +144,7 @@
                 <Button Width="200"
                         Height="32"
                         FontSize="20"
+                        Command="{Binding SignIn}"
                         Margin="50,316,50,72">登录</Button>
                 <Label HorizontalAlignment="Center"
                        VerticalAlignment="Top"
