@@ -177,7 +177,7 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <DockPanel DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
+                        <TextBlock DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Name}"
                                    Margin="0 0 0 16" />
                         <ScrollViewer Grid.Row="1"
                                       materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True"

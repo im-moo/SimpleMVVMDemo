@@ -17,7 +17,7 @@ namespace SimpleMVVMDemo.ViewModel
         {
 
             AllItems = GenerateDemoItems();
-            //FilterItems(null);
+            FilterItems(null);
         }
         private object uC;
 
@@ -113,8 +113,6 @@ namespace SimpleMVVMDemo.ViewModel
         {
             return new ObservableCollection<DemoItem>
             {
-                new  DemoItem ("Page1",new Page1(), new[]{ DocumentationLink.DemoPageLink<Page1>() } ),
-                new  DemoItem ("Page2",new Page2(), new[]{ DocumentationLink.DemoPageLink<Page2>() } ),
                 new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() } ),
                 new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>() } ),
             };
