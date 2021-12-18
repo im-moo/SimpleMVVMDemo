@@ -1,8 +1,8 @@
 ﻿namespace SimpleMVVMDemo.Models
 {
-    public class Home
+    public class Account
     {
-        public Home()
+        public Account()
         {
 
         }
