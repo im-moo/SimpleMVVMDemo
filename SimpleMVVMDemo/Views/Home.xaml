@@ -30,13 +30,19 @@
                     SnapsToDevicePixels="True"
                     materialDesign:NavigationRailAssist.ShowSelectionBackground="True">
             <materialDesign:NavigationRailAssist.FloatingContent>
-                <Button Style="{StaticResource MaterialDesignFloatingActionAccentButton}"
+                <Border Height="55"
+                        Width="55"
                         Margin="8"
+                        CornerRadius="55"
                         Cursor="Hand">
-                    <Button.Background>
+                    <Border.Background>
                         <ImageBrush ImageSource="/Image/head.jpg" />
-                    </Button.Background>
-                </Button>
+                    </Border.Background>
+                    <Border.InputBindings>
+                        <MouseBinding Command="{Binding Head}"
+                                      MouseAction="LeftClick"></MouseBinding>
+                    </Border.InputBindings>
+                </Border>
             </materialDesign:NavigationRailAssist.FloatingContent>
             <TabItem>
                 <TabItem.Header>

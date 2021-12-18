@@ -227,5 +227,12 @@ namespace SimpleMVVMDemo.ViewModel
                         DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
             };
         }
+
+        private SimpleCommand head;
+        public ICommand Head => head ??= new SimpleCommand(PerformHead);
+
+        private void PerformHead()
+        {
+        }
     }
 }
