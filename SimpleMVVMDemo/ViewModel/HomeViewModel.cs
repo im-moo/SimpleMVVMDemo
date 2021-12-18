@@ -1,8 +1,11 @@
 ﻿using MaterialDesignThemes.Wpf;
 using SimpleMVVM;
+using SimpleMVVMDemo.Models;
 using SimpleMVVMDemo.Views;
 using System;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -10,7 +13,12 @@ namespace SimpleMVVMDemo.ViewModel
 {
     public class HomeViewModel : ViewModelBase
     {
+        public HomeViewModel()
+        {
 
+            AllItems = GenerateDemoItems();
+            //FilterItems(null);
+        }
         private object uC;
 
         public object UC { get => uC; set => SetProperty(ref uC, value); }
@@ -51,6 +59,65 @@ namespace SimpleMVVMDemo.ViewModel
             Task.Delay(TimeSpan.FromSeconds(3))
                 .ContinueWith((t, _) => eventArgs.Session.Close(false), null,
                     TaskScheduler.FromCurrentSynchronizationContext());
+        }
+
+        private DemoItem selectedItem;
+
+        public DemoItem SelectedItem
+        {
+            get => selectedItem;
+            set
+            {
+                if (value == null || value.Equals(selectedItem)) return;
+
+                selectedItem = value;
+                OnPropertyChanged();
+            }
+        }
+
+        private int selectedIndex;
+
+        public int SelectedIndex { get => selectedIndex; set => SetProperty(ref selectedIndex, value); }
+
+        private ObservableCollection<DemoItem> demoItems;
+
+        public ObservableCollection<DemoItem> DemoItems
+        {
+            get => demoItems;
+            set
+            {
+                demoItems = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string SearchKeyword { get => _searchKeyword; set { _searchKeyword = value; OnPropertyChanged(); FilterItems(_searchKeyword); } }
+
+        private string _searchKeyword;
+
+        private ObservableCollection<DemoItem> _allItems;
+
+        public ObservableCollection<DemoItem> AllItems { get => _allItems; set => _allItems = value; }
+
+        private void FilterItems(string keyword)
+        {
+            var filteredItems =
+                string.IsNullOrWhiteSpace(keyword) ?
+                AllItems :
+                AllItems.Where(i => i.Name.ToLower().Contains(keyword.ToLower()));
+
+            DemoItems = new ObservableCollection<DemoItem>(filteredItems);
+        }
+
+        private ObservableCollection<DemoItem> GenerateDemoItems()
+        {
+            return new ObservableCollection<DemoItem>
+            {
+                new  DemoItem ("Page1",new Page1(), new[]{ DocumentationLink.DemoPageLink<Page1>() } ),
+                new  DemoItem ("Page2",new Page2(), new[]{ DocumentationLink.DemoPageLink<Page2>() } ),
+                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() } ),
+                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>() } ),
+            };
         }
     }
 }

@@ -150,18 +150,42 @@
                                     </Button>
                                 </Grid>
                             </materialDesign:ColorZone>
-                            <ListView Grid.Row="1"
-                                      materialDesign:ShadowAssist.ShadowDepth="Depth1"
-                                      Margin="10">
-                                <ListViewItem Content="Hello" />
-                                <ListViewItem Content="World" />
-                                <ListViewItem Content=":)" />
-                            </ListView>
+                            <ListBox x:Name="DemoItemsListBox"
+                                     Margin="0 16 0 16"
+                                     Grid.Row="1"
+                                     SelectedIndex="{Binding SelectedIndex}"
+                                     SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
+                                     ItemsSource="{Binding DemoItems}"
+                                     AutomationProperties.Name="DemoPagesListBox">
+                                <ListBox.Resources>
+                                    <Style TargetType="ScrollBar"
+                                           BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
+                                </ListBox.Resources>
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate DataType="domain:DemoItem">
+                                        <TextBlock Text="{Binding Name}"
+                                                   Margin="32 0 32 0"
+                                                   AutomationProperties.AutomationId="DemoItemPage" />
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
                         </Grid>
                     </Border>
                     <Grid Grid.Column="1"
                           Grid.Row="1">
-                        <UserControl DataContext="{Binding UC}"></UserControl>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <DockPanel DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
+                                   Margin="0 0 0 16" />
+                        <ScrollViewer Grid.Row="1"
+                                      materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True"
+                                      HorizontalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"
+                                      VerticalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.VerticalScrollBarVisibilityRequirement}"
+                                      Padding="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.MarginRequirement}">
+                            <ContentControl Content="{Binding SelectedItem.Content, UpdateSourceTrigger=PropertyChanged}" />
+                        </ScrollViewer>
                     </Grid>
                 </Grid>
             </TabItem>

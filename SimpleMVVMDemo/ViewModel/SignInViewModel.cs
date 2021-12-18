@@ -30,7 +30,7 @@ namespace SimpleMVVMDemo.ViewModel
         {
             if (Account == "admin" && Password == "admin")
             {
-                Home home = new();
+                Home home = new Home();
                 home.ShowDialog();
                 WinSta = System.Windows.WindowState.Minimized;
             }
