@@ -136,6 +136,7 @@
                                     </Button>
                                     <TextBox Grid.Column="1"
                                              Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
                                              materialDesign:HintAssist.Hint="搜索"
                                              materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                              BorderThickness="0"
@@ -177,8 +178,8 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <TextBlock DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.Name}"
-                                   Margin="0 0 0 16" />
+                        <local:DocumentationLinks DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
+                                                  Margin="0 0 0 16" />
                         <ScrollViewer Grid.Row="1"
                                       materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True"
                                       HorizontalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"
