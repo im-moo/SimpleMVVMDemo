@@ -2,7 +2,7 @@
 
 namespace SimpleMVVMDemo.ViewModel
 {
-    internal class SampleDialogViewModel : ViewModelBase
+    public class SampleDialogViewModel : ViewModelBase
     {
         private string? _name;
 
