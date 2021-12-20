@@ -111,121 +111,15 @@ namespace SimpleMVVMDemo.ViewModel
 
         private ObservableCollection<DemoItem> GenerateDemoItems()
         {
-            return new ObservableCollection<DemoItem>
-            {
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
+            var items = new ObservableCollection<DemoItem>();
+
+            var item = new DemoItem("UserControl1", new object(), new[]{ DocumentationLink.DemoPageLink<object>() ,
                     DocumentationLink.WikiLink("Brush-Names", "Brushes"),
                         DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>() 
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl1",new UserControl1(), new[]{ DocumentationLink.DemoPageLink<UserControl1>() ,
-                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-                new  DemoItem ("UserControl2",new UserControl2(), new[]{ DocumentationLink.DemoPageLink<UserControl2>()
-                ,DocumentationLink.WikiLink("Brush-Names", "Brushes"),
-                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
-                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),} ),
-            };
+                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),});
+
+            items.Add(item);
+            return items;
         }
 
         private SimpleCommand head;
