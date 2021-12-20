@@ -49,5 +49,13 @@ namespace SimpleMVVMDemo.ViewModel
             setting.ShowDialog();
             WinSta = System.Windows.WindowState.Minimized;
         }
+
+        private string titel = "登录";
+
+        public string Titel { get => titel; set => SetProperty(ref titel, value); }
+
+        private object uC = new SignInUserControl();
+
+        public object UC { get => uC; set => SetProperty(ref uC, value); }
     }
 }
