@@ -132,5 +132,9 @@ namespace SimpleMVVMDemo.ViewModel
         private void PerformHead()
         {
         }
+
+        private System.Windows.Visibility role = System.Windows.Visibility.Hidden;
+
+        public System.Windows.Visibility Role { get => role; set => SetProperty(ref role, value); }
     }
 }
