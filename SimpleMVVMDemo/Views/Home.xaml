@@ -48,11 +48,11 @@
                 <TabItem.Header>
                     <StackPanel Height="auto"
                                 Width="auto">
-                        <materialDesign:PackIcon Kind="Folder"
+                        <materialDesign:PackIcon Kind="DatabaseSearch"
                                                  Width="24"
                                                  Height="24"
                                                  HorizontalAlignment="Center" />
-                        <TextBlock Text="All Files"
+                        <TextBlock Text="查询"
                                    HorizontalAlignment="Center" />
                     </StackPanel>
                 </TabItem.Header>
@@ -200,11 +200,11 @@
                 <TabItem.Header>
                     <StackPanel Height="auto"
                                 Width="auto">
-                        <materialDesign:PackIcon Kind="ClockOutline"
+                        <materialDesign:PackIcon Kind="DatabaseArrowLeft"
                                                  Width="24"
                                                  Height="24"
                                                  HorizontalAlignment="Center" />
-                        <TextBlock Text="Recent"
+                        <TextBlock Text="入库"
                                    HorizontalAlignment="Center" />
                     </StackPanel>
                 </TabItem.Header>
@@ -213,11 +213,11 @@
                 <TabItem.Header>
                     <StackPanel Height="auto"
                                 Width="auto">
-                        <materialDesign:PackIcon Kind="Images"
+                        <materialDesign:PackIcon Kind="DatabaseArrowRight"
                                                  Width="24"
                                                  Height="24"
                                                  HorizontalAlignment="Center" />
-                        <TextBlock Text="Photos"
+                        <TextBlock Text="领用"
                                    HorizontalAlignment="Center" />
                     </StackPanel>
                 </TabItem.Header>
@@ -226,11 +226,50 @@
                 <TabItem.Header>
                     <StackPanel Height="auto"
                                 Width="auto">
-                        <materialDesign:PackIcon Kind="AccountDetails"
+                        <materialDesign:PackIcon Kind="VectorCombine"
                                                  Width="24"
                                                  Height="24"
                                                  HorizontalAlignment="Center" />
-                        <TextBlock Text="Account"
+                        <TextBlock Text="组装"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Height="auto"
+                                Width="auto">
+                        <materialDesign:PackIcon Kind="StateMachine"
+                                                 Width="24"
+                                                 Height="24"
+                                                 HorizontalAlignment="Center" />
+                        <TextBlock Text="上机"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Height="auto"
+                                Width="auto">
+                        <materialDesign:PackIcon Kind="BallotRecount"
+                                                 Width="24"
+                                                 Height="24"
+                                                 HorizontalAlignment="Center" />
+                        <TextBlock Text="卸载"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </TabItem.Header>
+            </TabItem>
+            <TabItem>
+                <TabItem.Header>
+                    <StackPanel Height="auto"
+                                Width="auto">
+                        <materialDesign:PackIcon Kind="Account"
+                                                 Width="24"
+                                                 Height="24"
+                                                 HorizontalAlignment="Center" />
+                        <TextBlock Text="用户"
                                    HorizontalAlignment="Center" />
                     </StackPanel>
                 </TabItem.Header>

@@ -113,12 +113,16 @@ namespace SimpleMVVMDemo.ViewModel
         {
             var items = new ObservableCollection<DemoItem>();
 
-            var item = new DemoItem("UserControl1", new object(), new[]{ DocumentationLink.DemoPageLink<object>() ,
+            var item = new DemoItem("SettingUserControl", new SettingUserControl(), new[]{ DocumentationLink.DemoPageLink<object>() ,
                     DocumentationLink.WikiLink("Brush-Names", "Brushes"),
                         DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
                         DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),});
-
+            var item1 = new DemoItem("SignInUserControl", new SignInUserControl(), new[]{ DocumentationLink.DemoPageLink<object>() ,
+                    DocumentationLink.WikiLink("Brush-Names", "Brushes"),
+                        DocumentationLink.WikiLink("Custom-Palette-Hues", "Custom Palettes"),
+                        DocumentationLink.WikiLink("Swatches-and-Recommended-Colors", "Swatches"),});
             items.Add(item);
+            items.Add(item1);
             return items;
         }
 
