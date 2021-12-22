@@ -67,6 +67,10 @@
                     </Grid.RowDefinitions>
                     <Border BorderThickness="0,0,1,0"
                             BorderBrush="#D6D6D6"></Border>
+                    <TextBlock FontSize="30"
+                               Foreground="Gray"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Bottom">博智林刀具管理系统</TextBlock>
                     <DockPanel Grid.Column="1"
                                Margin="0,0,10,0"
                                HorizontalAlignment="Right">
@@ -157,12 +161,12 @@
                                     </Button>
                                 </Grid>
                             </materialDesign:ColorZone>
-                            <ListBox x:Name="DemoItemsListBox"
+                            <ListBox x:Name="DefaultItemsListBox"
                                      Margin="0 16 0 16"
                                      Grid.Row="1"
-                                     SelectedIndex="{Binding SelectedIndex}"
-                                     SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
-                                     ItemsSource="{Binding DemoItems}"
+                                     SelectedIndex="{Binding SelectedDefaultIndex}"
+                                     SelectedItem="{Binding SelectedDefaultItem, UpdateSourceTrigger=PropertyChanged}"
+                                     ItemsSource="{Binding DefaultItems}"
                                      AutomationProperties.Name="DemoPagesListBox">
                                 <ListBox.Resources>
                                     <Style TargetType="ScrollBar"
@@ -170,7 +174,7 @@
                                 </ListBox.Resources>
                                 <ListBox.ItemTemplate>
                                     <DataTemplate DataType="domain:DemoItem">
-                                        <TextBlock Text="{Binding Name}"
+                                        <TextBlock Text="{Binding DefaultName}"
                                                    Margin="32 0 32 0"
                                                    AutomationProperties.AutomationId="DemoItemPage" />
                                     </DataTemplate>
@@ -184,8 +188,36 @@
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        <local:DocumentationLinks DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
-                                                  Margin="0 0 0 16" />
+                        <ListBox x:Name="DemoItemsListBox"
+                                 SelectedIndex="{Binding SelectedIndex}"
+                                 SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
+                                 ItemsSource="{Binding DemoItems}"
+                                 AutomationProperties.Name="DemoPagesListBox">
+                            <ListBox.Resources>
+                                <Style TargetType="ScrollBar"
+                                       BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
+                            </ListBox.Resources>
+                            <ListBox.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel></WrapPanel>
+                                </ItemsPanelTemplate>
+                            </ListBox.ItemsPanel>
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="domain:DemoItem">
+                                    <WrapPanel>
+                                        <materialDesign:PackIcon Kind="FileDocumentEdit"
+                                                                 Width="24"
+                                                                 Height="24"
+                                                                 VerticalContentAlignment="Center" />
+                                        <TextBlock Text="{Binding Name}"
+                                                   VerticalAlignment="Center"
+                                                   AutomationProperties.AutomationId="DemoItemPage" />
+                                    </WrapPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                        <!--<local:DocumentationLinks DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
+                                                  Margin="0 0 0 16" />-->
                         <ScrollViewer Grid.Row="1"
                                       materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True"
                                       HorizontalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"

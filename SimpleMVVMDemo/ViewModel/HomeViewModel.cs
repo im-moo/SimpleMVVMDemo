@@ -18,6 +18,7 @@ namespace SimpleMVVMDemo.ViewModel
 
             AllItems = GenerateDemoItems();
             FilterItems(null);
+            FilterDefaultItems(null);
         }
         private object uC;
 
@@ -91,7 +92,7 @@ namespace SimpleMVVMDemo.ViewModel
             }
         }
 
-        public string SearchKeyword { get => _searchKeyword; set { _searchKeyword = value; OnPropertyChanged(); FilterItems(_searchKeyword); } }
+        public string SearchKeyword { get => _searchKeyword; set { _searchKeyword = value; OnPropertyChanged(); FilterDefaultItems(_searchKeyword); } }
 
         private string _searchKeyword;
 
@@ -107,6 +108,17 @@ namespace SimpleMVVMDemo.ViewModel
                 AllItems.Where(i => i.Name.ToLower().Contains(keyword.ToLower()));
 
             DemoItems = new ObservableCollection<DemoItem>(filteredItems);
+        }
+
+        private void FilterDefaultItems(string keyword)
+        {
+            if (AllDefaultItems == null) return;
+            var filteredItems =
+                string.IsNullOrWhiteSpace(keyword) ?
+                AllDefaultItems :
+                AllDefaultItems.Where(i => i.Name.ToLower().Contains(keyword.ToLower()));
+
+            DefaultItems = new ObservableCollection<object>(filteredItems);
         }
 
         private ObservableCollection<DemoItem> GenerateDemoItems()
@@ -132,5 +144,21 @@ namespace SimpleMVVMDemo.ViewModel
         private void PerformHead()
         {
         }
+
+        private int selectedDefaultIndex;
+
+        public int SelectedDefaultIndex { get => selectedDefaultIndex; set => SetProperty(ref selectedDefaultIndex, value); }
+
+        private object selectedDefaultItem;
+
+        public object SelectedDefaultItem { get => selectedDefaultItem; set => SetProperty(ref selectedDefaultItem, value); }
+
+        private ObservableCollection<object> defaultItems;
+
+        public ObservableCollection<object> DefaultItems { get => defaultItems; set => SetProperty(ref defaultItems, value); }
+
+        private ObservableCollection<DemoItem> _allDefaultItems;
+
+        public ObservableCollection<DemoItem> AllDefaultItems { get => _allDefaultItems; set => _allDefaultItems = value; }
     }
 }
