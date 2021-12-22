@@ -160,5 +160,9 @@ namespace SimpleMVVMDemo.ViewModel
         private ObservableCollection<DemoItem> _allDefaultItems;
 
         public ObservableCollection<DemoItem> AllDefaultItems { get => _allDefaultItems; set => _allDefaultItems = value; }
+
+        private System.Windows.Visibility role = System.Windows.Visibility.Hidden;
+
+        public System.Windows.Visibility Role { get => role; set => SetProperty(ref role, value); }
     }
 }
