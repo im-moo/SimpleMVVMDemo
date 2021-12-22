@@ -409,11 +409,37 @@
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="Account"
+                            <materialDesign:PackIcon Kind="ChartBarStacked"
+                                                     Width="40"
+                                                     Height="40"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="报表"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Height="auto"
+                                    Width="auto">
+                            <materialDesign:PackIcon Kind="AccountTie"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
                             <TextBlock Text="用户"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </TabItem.Header>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Height="auto"
+                                    Width="auto">
+                            <materialDesign:PackIcon Kind="Cog"
+                                                     Width="40"
+                                                     Height="40"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="设置"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
