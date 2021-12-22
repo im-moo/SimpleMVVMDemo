@@ -49,8 +49,8 @@
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="DatabaseSearch"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="查询"
                                    HorizontalAlignment="Center" />
@@ -66,11 +66,12 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <Border BorderThickness="0,0,1,0"
-                            BorderBrush="#D6D6D6"></Border>
-                    <TextBlock FontSize="20"
-                               Foreground="Gray"
-                               HorizontalAlignment="Center"
-                               VerticalAlignment="Bottom">博智林刀具管理系统</TextBlock>
+                            BorderBrush="#D6D6D6">
+                        <TextBlock FontSize="20"
+                                   Foreground="Gray"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom">博智林刀具管理系统</TextBlock>
+                    </Border>
                     <DockPanel Grid.Column="1"
                                Margin="0,0,10,0"
                                HorizontalAlignment="Right">
@@ -227,13 +228,13 @@
                     </Grid>
                 </Grid>
             </TabItem>
-            <TabItem Visibility="{Binding Role}" >
+            <TabItem Visibility="{Binding Role}">
                 <TabItem.Header>
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="DatabaseArrowLeft"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="入库"
                                    HorizontalAlignment="Center" />
@@ -245,8 +246,8 @@
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="DatabaseArrowRight"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="领用"
                                    HorizontalAlignment="Center" />
@@ -271,8 +272,8 @@
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="StateMachine"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="上机"
                                    HorizontalAlignment="Center" />
@@ -297,8 +298,8 @@
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="Account"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="用户"
                                    HorizontalAlignment="Center" />
