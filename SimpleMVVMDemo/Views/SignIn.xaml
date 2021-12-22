@@ -113,6 +113,7 @@
                              TextWrapping="Wrap"
                              FontSize="15"
                              MaxWidth="400"
+                             materialDesign:TextFieldAssist.HasClearButton="True"
                              Text="{Binding Account}"
                              materialDesign:HintAssist.Hint="Account"
                              Cursor="IBeam" />
@@ -141,6 +142,7 @@
                               Style="{DynamicResource psw}" />
                     <PasswordBox Style="{StaticResource MaterialDesignFilledPasswordBox}"
                                  VerticalAlignment="Top"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
                                  FontSize="15"
                                  local:PasswordBoxBindingHelper.PasswordContent="{Binding Password,Mode=TwoWay}"
                                  materialDesign:HintAssist.Hint="Password"
