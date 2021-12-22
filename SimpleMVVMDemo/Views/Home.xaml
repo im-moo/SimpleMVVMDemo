@@ -67,7 +67,7 @@
                     </Grid.RowDefinitions>
                     <Border BorderThickness="0,0,1,0"
                             BorderBrush="#D6D6D6"></Border>
-                    <TextBlock FontSize="30"
+                    <TextBlock FontSize="20"
                                Foreground="Gray"
                                HorizontalAlignment="Center"
                                VerticalAlignment="Bottom">博智林刀具管理系统</TextBlock>
