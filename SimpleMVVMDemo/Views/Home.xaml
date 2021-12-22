@@ -367,8 +367,8 @@
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="VectorCombine"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="组装"
                                    HorizontalAlignment="Center" />
@@ -393,8 +393,8 @@
                     <StackPanel Height="auto"
                                 Width="auto">
                         <materialDesign:PackIcon Kind="BallotRecount"
-                                                 Width="24"
-                                                 Height="24"
+                                                 Width="40"
+                                                 Height="40"
                                                  HorizontalAlignment="Center" />
                         <TextBlock Text="卸载"
                                    HorizontalAlignment="Center" />
