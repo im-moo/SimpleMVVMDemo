@@ -164,5 +164,9 @@ namespace SimpleMVVMDemo.ViewModel
         private System.Windows.Visibility role = System.Windows.Visibility.Visible;
 
         public System.Windows.Visibility Role { get => role; set => SetProperty(ref role, value); }
+
+        private System.Collections.IEnumerable items2;
+
+        public System.Collections.IEnumerable Items2 { get => items2; set => SetProperty(ref items2, value); }
     }
 }
