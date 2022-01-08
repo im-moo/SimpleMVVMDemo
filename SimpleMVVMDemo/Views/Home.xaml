@@ -20,6 +20,16 @@
     <Window.DataContext>
         <viewmodel:HomeViewModel />
     </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type Menu}">
+            <Setter Property="Foreground"
+                    Value="#FF5D399D" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+        </Style>
+    </Window.Resources>
     <Border Background="WhiteSmoke"
             CornerRadius="10,10,10,10"
             Padding="5,5,5,5">
@@ -106,7 +116,6 @@
                             </materialDesign:ColorZone>
                             <Grid Grid.Column="1">
                                 <Menu IsMainMenu="True"
-                                      Background="Transparent"
                                       VerticalAlignment="Center">
                                     <MenuItem Header="资产概况数量"
                                               Icon="{materialDesign:PackIcon Kind=Counter}" />
@@ -245,6 +254,8 @@
                                       VerticalAlignment="Center">
                                     <MenuItem Header="全部"
                                               Icon="{materialDesign:PackIcon Kind=AllInclusiveBox}" />
+                                    <MenuItem Header="新增"
+                                              Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
                                     <MenuItem Header="闲置"
                                               Icon="{materialDesign:PackIcon Kind=BorderNone}" />
                                     <MenuItem Header="在用"
@@ -380,6 +391,23 @@
                                 <Menu IsMainMenu="True"
                                       Background="Transparent"
                                       VerticalAlignment="Center">
+                                    <MenuItem Header="新增"
+                                              Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}">
+                                        <MenuItem Header="新增入库单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增领用单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增借用单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增维修单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增交接单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增退还单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增处置单"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                    </MenuItem>
                                     <MenuItem Header="入库单"
                                               Icon="{materialDesign:PackIcon Kind=Import}" />
                                     <MenuItem Header="领用单"
@@ -521,6 +549,8 @@
                                       VerticalAlignment="Center">
                                     <MenuItem Header="全部"
                                               Icon="{materialDesign:PackIcon Kind=AllInclusiveBox}" />
+                                    <MenuItem Header="新增"
+                                              Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
                                     <MenuItem Header="待盘点"
                                               Icon="{materialDesign:PackIcon Kind=Timer}" />
                                     <MenuItem Header="盘点中"
@@ -652,19 +682,36 @@
                                 <Menu IsMainMenu="True"
                                       Background="Transparent"
                                       VerticalAlignment="Center">
+                                    <MenuItem Header="新增"
+                                              Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}">
+                                        <MenuItem Header="新增资产分类"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增部门"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增用户"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增权限"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增处置方式"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增资产状况"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                        <MenuItem Header="新增单位"
+                                                  Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
+                                    </MenuItem>
                                     <MenuItem Header="资产分类"
                                               Icon="{materialDesign:PackIcon Kind=Cassette}" />
-                                    <MenuItem Header="物品分类"
-                                              Icon="{materialDesign:PackIcon Kind=GoogleCardboard}" />
-                                    <MenuItem Header="组织架构"
+                                    <MenuItem Header="部门"
                                               Icon="{materialDesign:PackIcon Kind=CameraFront}" />
-                                    <MenuItem Header="员工信息"
+                                    <MenuItem Header="用户"
                                               Icon="{materialDesign:PackIcon Kind=CameraFrontVariant}" />
+                                    <MenuItem Header="权限"
+                                              Icon="{materialDesign:PackIcon Kind=CompassRose}" />
                                     <MenuItem Header="处置方式"
                                               Icon="{materialDesign:PackIcon Kind=HumanDolly}" />
                                     <MenuItem Header="资产状况"
                                               Icon="{materialDesign:PackIcon Kind=ListStatus}" />
-                                    <MenuItem Header="计量单位"
+                                    <MenuItem Header="单位"
                                               Icon="{materialDesign:PackIcon Kind=WeightKilogram}" />
                                     <Separator />
                                     <MenuItem Header="导出"
@@ -791,6 +838,25 @@
                                 <Menu IsMainMenu="True"
                                       Background="Transparent"
                                       VerticalAlignment="Center">
+                                    <MenuItem Header="切换打印"
+                                              Icon="{materialDesign:PackIcon Kind=PrinterSearch}">
+                                        <MenuItem Header="打印小标签"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印入库单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印领用单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印借用单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印维修单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印交接单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印退还单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                        <MenuItem Header="打印处置单"
+                                                  Icon="{materialDesign:PackIcon Kind=CloudPrint}" />
+                                    </MenuItem>
                                     <MenuItem Header="全选"
                                               Icon="{materialDesign:PackIcon Kind=SelectGroup}" />
                                     <MenuItem Header="反选"
@@ -926,6 +992,8 @@
                                       VerticalAlignment="Center">
                                     <MenuItem Header="全部"
                                               Icon="{materialDesign:PackIcon Kind=AllInclusiveBox}" />
+                                    <MenuItem Header="新增"
+                                              Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
                                     <MenuItem Header="待处理"
                                               Icon="{materialDesign:PackIcon Kind=Timer}" />
                                     <MenuItem Header="已处理"
