@@ -52,304 +52,410 @@
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
+                            <materialDesign:PackIcon Kind="Home"
+                                                     Width="40"
+                                                     Height="40"
+                                                     HorizontalAlignment="Center" />
+                            <TextBlock Text="首页"
+                                       HorizontalAlignment="Center" />
+                        </StackPanel>
+                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="资产概况数量"
+                                              Icon="{materialDesign:PackIcon Kind=Counter}" />
+                                    <MenuItem Header="资产概况金额"
+                                              Icon="{materialDesign:PackIcon Kind=CurrencyUsd}" />
+                                    <MenuItem Header="资产报表"
+                                              Icon="{materialDesign:PackIcon Kind=ChartPie}" />
+                                    <MenuItem Header="库存报表"
+                                              Icon="{materialDesign:PackIcon Kind=ChartDonutVariant}" />
+                                    <MenuItem Header="分析报表"
+                                              Icon="{materialDesign:PackIcon Kind=ChartBarStacked}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <StackPanel Height="auto"
+                                    Width="auto">
                             <materialDesign:PackIcon Kind="DatabaseSearch"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="查询"
+                            <TextBlock Text="资产"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="300"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Border BorderThickness="0,0,1,0"
-                                BorderBrush="#D6D6D6">
-                            <TextBlock FontSize="20"
-                                       Foreground="Gray"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Bottom">博智林刀具管理系统</TextBlock>
-                        </Border>
-                        <DockPanel Grid.Column="1"
-                                   Margin="0,0,10,0"
-                                   HorizontalAlignment="Right">
-                            <TextBlock FontSize="30"
-                                       Text="─"
-                                       Margin="0,0,10,0"
-                                       MouseDown="TextBlock_MouseDown">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Foreground"
-                                                        Value="Green" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style></TextBlock>
-                            <TextBlock FontSize="30"
-                                       Text="◻"
-                                       Margin="0,0,10,0"
-                                       MouseDown="TextBlock_MouseDown_1">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Foreground"
-                                                        Value="Green" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style></TextBlock>
-                            <TextBlock FontSize="30"
-                                       Text="×"
-                                       MouseDown="TextBlock_MouseDown_2">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Foreground"
-                                                        Value="Red" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style></TextBlock>
-                        </DockPanel>
-                        <Border Grid.Row="1"
-                                BorderThickness="0,0,1,0"
-                                BorderBrush="#D6D6D6">
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="60"></RowDefinition>
-                                    <RowDefinition></RowDefinition>
-                                </Grid.RowDefinitions>
-                                <materialDesign:ColorZone Mode="Standard"
-                                                          Padding="8 4 8 4"
-                                                          CornerRadius="2"
-                                                          Margin="10"
-                                                          Panel.ZIndex="1"
-                                                          materialDesign:ShadowAssist.ShadowDepth="Depth1">
-                                    <Grid>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="*" />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <Button Style="{DynamicResource MaterialDesignToolButton}">
-                                            <materialDesign:PackIcon Kind="Search"
-                                                                     Opacity=".56" />
-                                        </Button>
-                                        <TextBox Grid.Column="1"
-                                                 Margin="8 0 0 0"
-                                                 Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
-                                                 materialDesign:HintAssist.Hint="搜索"
-                                                 materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                                 BorderThickness="0"
-                                                 MinWidth="200"
-                                                 VerticalAlignment="Center"
-                                                 Cursor="IBeam" />
-                                        <Button Style="{DynamicResource MaterialDesignToolButton}"
-                                                Grid.Column="2">
-                                            <materialDesign:PackIcon Kind="Qrcode"
-                                                                     Opacity=".56"
-                                                                     Margin="8 0 0 0" />
-                                        </Button>
-                                    </Grid>
-                                </materialDesign:ColorZone>
-                                <ListBox x:Name="DefaultItemsListBox"
-                                         Margin="0 16 0 16"
-                                         Grid.Row="1"
-                                         SelectedIndex="{Binding SelectedDefaultIndex}"
-                                         SelectedItem="{Binding SelectedDefaultItem, UpdateSourceTrigger=PropertyChanged}"
-                                         ItemsSource="{Binding DefaultItems}"
-                                         AutomationProperties.Name="DemoPagesListBox">
-                                    <ListBox.Resources>
-                                        <Style TargetType="ScrollBar"
-                                               BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
-                                    </ListBox.Resources>
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate DataType="domain:DemoItem">
-                                            <TextBlock Text="{Binding DefaultName}"
-                                                       Margin="32 0 32 0"
-                                                       AutomationProperties.AutomationId="DemoItemPage" />
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="全部"
+                                              Icon="{materialDesign:PackIcon Kind=AllInclusiveBox}" />
+                                    <MenuItem Header="闲置"
+                                              Icon="{materialDesign:PackIcon Kind=BorderNone}" />
+                                    <MenuItem Header="在用"
+                                              Icon="{materialDesign:PackIcon Kind=AccountBoxMultiple}" />
+                                    <MenuItem Header="借用"
+                                              Icon="{materialDesign:PackIcon Kind=Allergy}" />
+                                    <MenuItem Header="维修"
+                                              Icon="{materialDesign:PackIcon Kind=Tools}" />
+                                    <MenuItem Header="处置"
+                                              Icon="{materialDesign:PackIcon Kind=HumanDolly}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
                             </Grid>
-                        </Border>
-                        <Grid Grid.Column="1"
-                              Grid.Row="1">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <ListBox x:Name="DemoItemsListBox"
-                                     SelectedIndex="{Binding SelectedIndex}"
-                                     SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
-                                     ItemsSource="{Binding DemoItems}"
-                                     AutomationProperties.Name="DemoPagesListBox">
-                                <ListBox.Resources>
-                                    <Style TargetType="ScrollBar"
-                                           BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
-                                </ListBox.Resources>
-                                <ListBox.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel></WrapPanel>
-                                    </ItemsPanelTemplate>
-                                </ListBox.ItemsPanel>
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate DataType="domain:DemoItem">
-                                        <WrapPanel>
-                                            <materialDesign:PackIcon Kind="FileDocumentEdit"
-                                                                     Width="24"
-                                                                     Height="24"
-                                                                     VerticalContentAlignment="Center" />
-                                            <TextBlock Text="{Binding Name}"
-                                                       VerticalAlignment="Center"
-                                                       AutomationProperties.AutomationId="DemoItemPage" />
-                                        </WrapPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <!--<local:DocumentationLinks DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
-                                                  Margin="0 0 0 16" />-->
-                            <ScrollViewer Grid.Row="1"
-                                          materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True"
-                                          HorizontalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"
-                                          VerticalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.VerticalScrollBarVisibilityRequirement}"
-                                          Padding="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.MarginRequirement}">
-                                <ContentControl Content="{Binding SelectedItem.Content, UpdateSourceTrigger=PropertyChanged}" />
-                            </ScrollViewer>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
                         </Grid>
                     </Grid>
                 </TabItem>
-                <TabItem Visibility="{Binding Role}">
+                <TabItem>
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="DatabaseArrowLeft"
+                            <materialDesign:PackIcon Kind="ClipboardList"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="入库"
+                            <TextBlock Text="单据"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
                     <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="300"></ColumnDefinition>
-                            <ColumnDefinition></ColumnDefinition>
-                        </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="30"></RowDefinition>
+                            <RowDefinition Height="60"></RowDefinition>
                             <RowDefinition></RowDefinition>
                         </Grid.RowDefinitions>
-                        <Border BorderBrush="#D6D6D6">
-                            <TextBlock FontSize="20"
-                                       Foreground="Gray"
-                                       HorizontalAlignment="Center"
-                                       VerticalAlignment="Bottom">博智林刀具管理系统</TextBlock>
-                        </Border>
-                        <DockPanel Grid.Column="1"
-                                   Margin="0,0,10,0"
-                                   HorizontalAlignment="Right">
-                            <TextBlock FontSize="30"
-                                       Text="─"
-                                       Margin="0,0,10,0"
-                                       MouseDown="TextBlock_MouseDown">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Foreground"
-                                                        Value="Green" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style></TextBlock>
-                            <TextBlock FontSize="30"
-                                       Text="◻"
-                                       Margin="0,0,10,0"
-                                       MouseDown="TextBlock_MouseDown_1">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Foreground"
-                                                        Value="Green" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style></TextBlock>
-                            <TextBlock FontSize="30"
-                                       Text="×"
-                                       MouseDown="TextBlock_MouseDown_2">
-                                <TextBlock.Style>
-                                    <Style TargetType="TextBlock">
-                                        <Style.Triggers>
-                                            <Trigger Property="IsMouseOver"
-                                                     Value="True">
-                                                <Setter Property="Foreground"
-                                                        Value="Red" />
-                                            </Trigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </TextBlock.Style></TextBlock>
-                        </DockPanel>
-                        <Grid Grid.Row="1"
-                              Grid.ColumnSpan="2">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <ListBox x:Name="InItemsListBox"
-                                     SelectedIndex="{Binding SelectedIndex}"
-                                     SelectedItem="{Binding SelectedItem, UpdateSourceTrigger=PropertyChanged}"
-                                     ItemsSource="{Binding DemoItems}"
-                                     AutomationProperties.Name="DemoPagesListBox">
-                                <ListBox.Resources>
-                                    <Style TargetType="ScrollBar"
-                                           BasedOn="{StaticResource MaterialDesignScrollBarMinimal}" />
-                                </ListBox.Resources>
-                                <ListBox.ItemsPanel>
-                                    <ItemsPanelTemplate>
-                                        <WrapPanel></WrapPanel>
-                                    </ItemsPanelTemplate>
-                                </ListBox.ItemsPanel>
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate DataType="domain:DemoItem">
-                                        <WrapPanel>
-                                            <materialDesign:PackIcon Kind="FileDocumentEdit"
-                                                                     Width="24"
-                                                                     Height="24"
-                                                                     VerticalContentAlignment="Center" />
-                                            <TextBlock Text="{Binding Name}"
-                                                       VerticalAlignment="Center"
-                                                       AutomationProperties.AutomationId="DemoItemPage" />
-                                        </WrapPanel>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                            <!--<local:DocumentationLinks DataContext="{Binding ElementName=DemoItemsListBox, Path=SelectedItem}"
-                                                  Margin="0 0 0 16" />-->
-                            <ScrollViewer Grid.Row="1"
-                                          materialDesign:ScrollViewerAssist.IsAutoHideEnabled="True"
-                                          HorizontalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.HorizontalScrollBarVisibilityRequirement}"
-                                          VerticalScrollBarVisibility="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.VerticalScrollBarVisibilityRequirement}"
-                                          Padding="{Binding ElementName=DemoItemsListBox, Path=SelectedItem.MarginRequirement}">
-                                <ContentControl Content="{Binding SelectedItem.Content, UpdateSourceTrigger=PropertyChanged}" />
-                            </ScrollViewer>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="入库单"
+                                              Icon="{materialDesign:PackIcon Kind=Import}" />
+                                    <MenuItem Header="领用单"
+                                              Icon="{materialDesign:PackIcon Kind=Allergy}" />
+                                    <MenuItem Header="借用单"
+                                              Icon="{materialDesign:PackIcon Kind=Allergy}" />
+                                    <MenuItem Header="维修单"
+                                              Icon="{materialDesign:PackIcon Kind=Tools}" />
+                                    <MenuItem Header="交接单"
+                                              Icon="{materialDesign:PackIcon Kind=Handshake}" />
+                                    <MenuItem Header="退还单"
+                                              Icon="{materialDesign:PackIcon Kind=ClipboardArrowLeft}" />
+                                    <MenuItem Header="处置单"
+                                              Icon="{materialDesign:PackIcon Kind=HumanDolly}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
                         </Grid>
                     </Grid>
                 </TabItem>
@@ -357,92 +463,673 @@
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="DatabaseArrowRight"
+                            <materialDesign:PackIcon Kind="CalculatorVariant"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="领用"
+                            <TextBlock Text="盘点"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="全部"
+                                              Icon="{materialDesign:PackIcon Kind=AllInclusiveBox}" />
+                                    <MenuItem Header="待盘点"
+                                              Icon="{materialDesign:PackIcon Kind=Timer}" />
+                                    <MenuItem Header="盘点中"
+                                              Icon="{materialDesign:PackIcon Kind=Run}" />
+                                    <MenuItem Header="已完成"
+                                              Icon="{materialDesign:PackIcon Kind=HandOkay}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
+                        </Grid>
+                    </Grid>
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="VectorCombine"
+                            <materialDesign:PackIcon Kind="Fire"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="组装"
+                            <TextBlock Text="基础"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="资产分类"
+                                              Icon="{materialDesign:PackIcon Kind=Cassette}" />
+                                    <MenuItem Header="物品分类"
+                                              Icon="{materialDesign:PackIcon Kind=GoogleCardboard}" />
+                                    <MenuItem Header="组织架构"
+                                              Icon="{materialDesign:PackIcon Kind=CameraFront}" />
+                                    <MenuItem Header="员工信息"
+                                              Icon="{materialDesign:PackIcon Kind=CameraFrontVariant}" />
+                                    <MenuItem Header="处置方式"
+                                              Icon="{materialDesign:PackIcon Kind=HumanDolly}" />
+                                    <MenuItem Header="资产状况"
+                                              Icon="{materialDesign:PackIcon Kind=ListStatus}" />
+                                    <MenuItem Header="计量单位"
+                                              Icon="{materialDesign:PackIcon Kind=WeightKilogram}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
+                        </Grid>
+                    </Grid>
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="StateMachine"
+                            <materialDesign:PackIcon Kind="Printer"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="上机"
+                            <TextBlock Text="打印"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="全选"
+                                              Icon="{materialDesign:PackIcon Kind=SelectGroup}" />
+                                    <MenuItem Header="反选"
+                                              Icon="{materialDesign:PackIcon Kind=SelectRemove}" />
+                                    <MenuItem Header="打印"
+                                              Icon="{materialDesign:PackIcon Kind=Printer}" />
+                                    <MenuItem Header="刷新"
+                                              Icon="{materialDesign:PackIcon Kind=CameraFlip}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
+                        </Grid>
+                    </Grid>
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="BallotRecount"
+                            <materialDesign:PackIcon Kind="MessageBadge"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="卸载"
+                            <TextBlock Text="待办"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="全部"
+                                              Icon="{materialDesign:PackIcon Kind=AllInclusiveBox}" />
+                                    <MenuItem Header="待处理"
+                                              Icon="{materialDesign:PackIcon Kind=Timer}" />
+                                    <MenuItem Header="已处理"
+                                              Icon="{materialDesign:PackIcon Kind=HandOkay}" />
+                                    <MenuItem Header="我的申请"
+                                              Icon="{materialDesign:PackIcon Kind=ChartTimeline}" />
+                                    <MenuItem Header="抄送我的"
+                                              Icon="{materialDesign:PackIcon Kind=MessagePlus}" />
+                                    <MenuItem Header="备忘录"
+                                              Icon="{materialDesign:PackIcon Kind=MicrosoftOnenote}" />
+                                    <Separator />
+                                    <MenuItem Header="导出"
+                                              InputGestureText="Ctrl+E"
+                                              Icon="{materialDesign:PackIcon Kind=FileExport}" />
+                                    <Separator />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
+                        </Grid>
+                    </Grid>
                 </TabItem>
                 <TabItem>
                     <TabItem.Header>
                         <StackPanel Height="auto"
                                     Width="auto">
-                            <materialDesign:PackIcon Kind="ChartBarStacked"
+                            <materialDesign:PackIcon Kind="HelpCircle"
                                                      Width="40"
                                                      Height="40"
                                                      HorizontalAlignment="Center" />
-                            <TextBlock Text="报表"
+                            <TextBlock Text="帮助"
                                        HorizontalAlignment="Center" />
                         </StackPanel>
                     </TabItem.Header>
-                </TabItem>
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Height="auto"
-                                    Width="auto">
-                            <materialDesign:PackIcon Kind="AccountTie"
-                                                     Width="40"
-                                                     Height="40"
-                                                     HorizontalAlignment="Center" />
-                            <TextBlock Text="用户"
-                                       HorizontalAlignment="Center" />
-                        </StackPanel>
-                    </TabItem.Header>
-                </TabItem>
-                <TabItem>
-                    <TabItem.Header>
-                        <StackPanel Height="auto"
-                                    Width="auto">
-                            <materialDesign:PackIcon Kind="Cog"
-                                                     Width="40"
-                                                     Height="40"
-                                                     HorizontalAlignment="Center" />
-                            <TextBlock Text="设置"
-                                       HorizontalAlignment="Center" />
-                        </StackPanel>
-                    </TabItem.Header>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="60"></RowDefinition>
+                            <RowDefinition></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Column="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="300"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="100"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <materialDesign:ColorZone Mode="Standard"
+                                                      Padding="8 4 8 4"
+                                                      CornerRadius="2"
+                                                      Margin="10"
+                                                      Panel.ZIndex="1"
+                                                      materialDesign:ShadowAssist.ShadowDepth="Depth1">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="Auto" />
+                                    </Grid.ColumnDefinitions>
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}">
+                                        <materialDesign:PackIcon Kind="Search"
+                                                                 Opacity=".56" />
+                                    </Button>
+                                    <TextBox Grid.Column="1"
+                                             Margin="8 0 0 0"
+                                             Text="{Binding SearchKeyword, UpdateSourceTrigger=PropertyChanged}"
+                                             materialDesign:HintAssist.Hint="博智林刀具管理系统"
+                                             materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                             BorderThickness="0"
+                                             MinWidth="200"
+                                             VerticalAlignment="Center"
+                                             Cursor="IBeam" />
+                                    <Button Style="{DynamicResource MaterialDesignToolButton}"
+                                            Grid.Column="2">
+                                        <materialDesign:PackIcon Kind="Qrcode"
+                                                                 Opacity=".56"
+                                                                 Margin="8 0 0 0" />
+                                    </Button>
+                                </Grid>
+                            </materialDesign:ColorZone>
+                            <Grid Grid.Column="1">
+                                <Menu IsMainMenu="True"
+                                      Background="Transparent"
+                                      VerticalAlignment="Center">
+                                    <MenuItem Header="帮助中心"
+                                              Icon="{materialDesign:PackIcon Kind=HelpCircle}" />
+                                    <MenuItem Header="个人信息"
+                                              Icon="{materialDesign:PackIcon Kind=Account}" />
+                                    <MenuItem Header="联系客服"
+                                              Icon="{materialDesign:PackIcon Kind=Phone}" />
+                                    <MenuItem Header="意见反馈"
+                                              Icon="{materialDesign:PackIcon Kind=Message}" />
+                                    <MenuItem Header="关于"
+                                              Icon="{materialDesign:PackIcon Kind=Information}" />
+                                </Menu>
+                            </Grid>
+                            <WrapPanel Margin="0,0,10,0"
+                                       Grid.Column="2"
+                                       HorizontalAlignment="Left">
+                                <TextBlock FontSize="30"
+                                           Text="─"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="◻"
+                                           Margin="0,0,10,0"
+                                           MouseDown="TextBlock_MouseDown_1">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Green" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                                <TextBlock FontSize="30"
+                                           Text="×"
+                                           MouseDown="TextBlock_MouseDown_2">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver"
+                                                         Value="True">
+                                                    <Setter Property="Foreground"
+                                                            Value="Red" />
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style></TextBlock>
+                            </WrapPanel>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <DataGrid ItemsSource="{Binding Items2}"
+                                      CanUserAddRows="False"
+                                      SelectionUnit="Cell"
+                                      Background="Transparent"
+                                      SelectionMode="Extended" />
+                        </Grid>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </Grid>
