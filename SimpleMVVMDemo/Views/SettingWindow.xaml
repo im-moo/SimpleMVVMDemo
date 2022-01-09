@@ -4,6 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleMVVMDemo.Views"
+        xmlns:viewmodel="clr-namespace:SimpleMVVMDemo.ViewModel"
+        d:DataContext="{d:DesignInstance Type=viewmodel:SettingWindowViewModel}"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
@@ -14,6 +16,19 @@
         Height="450"
         Width="300"
         Icon="../Image/head.jpg">
+    <Window.DataContext>
+        <viewmodel:SettingWindowViewModel />
+    </Window.DataContext>
+    <Window.Resources>
+        <Style TargetType="{x:Type Menu}">
+            <Setter Property="Foreground"
+                    Value="#FF5D399D" />
+            <Setter Property="FontWeight"
+                    Value="Bold" />
+            <Setter Property="Background"
+                    Value="Transparent" />
+        </Style>
+    </Window.Resources>
     <Border CornerRadius="10"
             Background="WhiteSmoke">
         <Grid>
