@@ -118,9 +118,9 @@
                                 <Menu IsMainMenu="True"
                                       VerticalAlignment="Center">
                                     <MenuItem Header="资产概况数量"
-                                              Icon="{materialDesign:PackIcon Kind=Counter}" />
+                                              Icon="{materialDesign:PackIcon Kind=ChartAreaspline}" />
                                     <MenuItem Header="资产概况金额"
-                                              Icon="{materialDesign:PackIcon Kind=CurrencyUsd}" />
+                                              Icon="{materialDesign:PackIcon Kind=ChartLineStacked}" />
                                     <MenuItem Header="资产报表"
                                               Icon="{materialDesign:PackIcon Kind=ChartPie}" />
                                     <MenuItem Header="库存报表"
