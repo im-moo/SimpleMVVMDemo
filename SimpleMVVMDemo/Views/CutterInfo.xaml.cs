@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace SimpleMVVMDemo.Views
@@ -18,7 +17,7 @@ namespace SimpleMVVMDemo.Views
     /// <summary>
     /// CutterInfo.xaml 的交互逻辑
     /// </summary>
-    public partial class CutterInfo : UserControl
+    public partial class CutterInfo : Window
     {
         public CutterInfo()
         {
