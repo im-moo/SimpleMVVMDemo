@@ -54,8 +54,8 @@ namespace SimpleMVVMDemo.ViewModel
 
         public string Titel { get => titel; set => SetProperty(ref titel, value); }
 
-        private object uC = new SignInUserControl();
+        //private object uC = new SignInUserControl();
 
-        public object UC { get => uC; set => SetProperty(ref uC, value); }
+        //public object UC { get => uC; set => SetProperty(ref uC, value); }
     }
 }
