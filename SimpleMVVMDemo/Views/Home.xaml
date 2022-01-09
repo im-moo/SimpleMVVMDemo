@@ -686,22 +686,22 @@
                                               Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}">
                                         <MenuItem Header="新增资产分类"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
-                                        <MenuItem Header="新增部门"
+                                        <MenuItem Header="新增公司部门"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
-                                        <MenuItem Header="新增用户"
+                                        <MenuItem Header="新增用户账户"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
-                                        <MenuItem Header="新增权限"
+                                        <MenuItem Header="新增操作权限"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
                                         <MenuItem Header="新增处置方式"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
                                         <MenuItem Header="新增资产状况"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
-                                        <MenuItem Header="新增单位"
+                                        <MenuItem Header="新增计量单位"
                                                   Icon="{materialDesign:PackIcon Kind=PlusBoxMultiple}" />
                                     </MenuItem>
                                     <MenuItem Header="资产分类"
                                               Icon="{materialDesign:PackIcon Kind=Cassette}" />
-                                    <MenuItem Header="部门"
+                                    <MenuItem Header="组织"
                                               Icon="{materialDesign:PackIcon Kind=CameraFront}" />
                                     <MenuItem Header="用户"
                                               Icon="{materialDesign:PackIcon Kind=CameraFrontVariant}" />
@@ -711,7 +711,7 @@
                                               Icon="{materialDesign:PackIcon Kind=HumanDolly}" />
                                     <MenuItem Header="资产状况"
                                               Icon="{materialDesign:PackIcon Kind=ListStatus}" />
-                                    <MenuItem Header="单位"
+                                    <MenuItem Header="计量单位"
                                               Icon="{materialDesign:PackIcon Kind=WeightKilogram}" />
                                     <Separator />
                                     <MenuItem Header="导出"
